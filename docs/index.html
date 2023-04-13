@@ -16,8 +16,9 @@
       <div class="col-sm-6">
         <div class="form-group">
           <label for="texto"><strong>Texto a encriptar o desencriptar:</strong></label>
-          <textarea class="form-control" id="texto" rows="4" oninput="autoExpand(this)"></textarea>
+          <textarea class="form-control" id="texto" rows="4" oninput="autoExpand(this); validarTexto()"></textarea>
           <div class="text-center">
+            <div class="error-message" id="error-mensaje"></div>
             <button class="btn btn-primary mt-3" onclick="encriptar()">Encriptar</button>
             <button class="btn btn-primary mt-3" onclick="desencriptar()">Desencriptar</button>
           </div>

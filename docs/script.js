@@ -3,10 +3,32 @@ function autoExpand(element) {
     element.style.height = (element.scrollHeight) + 'px';
 }
 
+function validarTexto() {
+    var texto = document.getElementById("texto").value.toLowerCase();
+    var errorMensaje = document.getElementById("error-mensaje");
+
+    if (!/^[a-z\n ]+$/.test(texto)) {
+        document.getElementById("texto").classList.add("has-error");
+        errorMensaje.innerHTML = "El texto ingresado debe contener solo letras minúsculas, sin acentos ni caracteres especiales.";
+        return;
+    } else {
+        document.getElementById("texto").classList.remove("has-error");
+        errorMensaje.innerHTML = "";
+    }
+}
+
 
 function encriptar() {
 
-    var texto = document.getElementById("texto").value.toLowerCase();
+    var texto = document.getElementById("texto").value;
+
+    // Validar el texto ingresado
+    validarTexto();
+
+    // Si el texto es inválido, no se hace nada
+    if (document.getElementById("texto").classList.contains("has-error")) {
+        return;
+    }
 
     texto = texto.replace(/e/g, "enter");
     texto = texto.replace(/i/g, "imes");
@@ -28,7 +50,15 @@ function encriptar() {
 }
 
 function desencriptar() {
-    var texto = document.getElementById("texto").value.toLowerCase();
+    var texto = document.getElementById("texto").value;
+
+    // Validar el texto ingresado
+    validarTexto();
+
+    // Si el texto es inválido, no se hace nada
+    if (document.getElementById("texto").classList.contains("has-error")) {
+        return;
+    }
 
     texto = texto.replace(/enter/g, "e");
     texto = texto.replace(/imes/g, "i");
