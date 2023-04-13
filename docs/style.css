@@ -13,8 +13,8 @@ body {
     height: calc(100vh - 400px);
     overflow-y: auto;
     position: relative;
-    background-color: #343a40;
-	color: #fff;
+    background-color: #aab5c5;
+	color: #000000;
     border-radius: 100px;
     font-family: sans-serif;
     font-size: 10pt;
