@@ -47,6 +47,15 @@ textarea {
     font-weight: bold;
 }
 
+.success-message {
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 5px;
+    font-family: sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
 .img-default {
     width: 40%;
     height: 40%;

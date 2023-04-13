@@ -6,14 +6,17 @@ function autoExpand(element) {
 function validarTexto() {
     let texto = document.getElementById("texto").value;
     let errorMensaje = document.getElementById("error-mensaje");
-
-    if (!/^[a-z\s]*$/.test(texto)) {
+    if (!/^[a-z\s]*$/.test(texto) || texto == '') {
         document.getElementById("texto").classList.add("has-error");
-        errorMensaje.innerHTML = "El texto ingresado debe contener solo letras minúsculas, sin acentos ni caracteres especiales.";
+        errorMensaje.classList.remove("success-message");
+        errorMensaje.classList.add("error-message");
+        errorMensaje.innerHTML = '<i class="bi bi-exclamation-circle-fill" style="font-size:15px;"></i> El texto ingresado debe contener solo letras minúsculas, sin acentos ni caracteres especiales.';
         return;
     } else {
         document.getElementById("texto").classList.remove("has-error");
-        errorMensaje.innerHTML = "";
+        errorMensaje.innerHTML = '<i class="bi bi-exclamation-circle-fill" style="font-size:15px;"></i> Muy bien Solo letras minúsculas y sin acentos';
+        errorMensaje.classList.add("success-message");
+        errorMensaje.classList.remove("error-message");
     }
 }
 
