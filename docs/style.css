@@ -1,0 +1,12 @@
+.resultado {
+    border: 1px solid #ced4da;
+    padding: 10px;
+    height: 100px;
+    overflow-y: hidden;
+}
+
+textarea {
+    min-height: 100px;
+    max-height: auto;
+    overflow-y: hidden;
+}
