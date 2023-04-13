@@ -1,22 +1,71 @@
+body {
+	background-color: #212529;
+	color: #fff;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
 .resultado {
     border: 1px solid #ced4da;
     padding: 10px;
-    height: 100px;
-    overflow-y: hidden;
+    height: calc(100vh - 400px);
+    overflow-y: auto;
+    position: relative;
+    background-color: #343a40;
+	color: #fff;
+    border-radius: 100px;
+    font-family: sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    
 }
 
 textarea {
     min-height: 100px;
     max-height: auto;
     overflow-y: hidden;
+    font-family: sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
 }
 
 .has-error {
-    border: 2px solid red;
+    border: 2px solid #dc3545;
+    font-family: sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
 }
 
 .error-message {
-    color: red;
-    font-size: 12px;
+    color: #dc3545;
+    font-size: 20px;
     margin-top: 5px;
+    font-family: sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.img-default {
+    width: 40%;
+    height: 40%;
+    max-width: auto;
+    max-height: auto;
+}
+
+.btn-primary {
+	background-color: #1666bb;
+	border-color: #007bff;
+    font-family: sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+	background-color: #728394;
+	border-color: #0062cc;
+    font-family: sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
 }

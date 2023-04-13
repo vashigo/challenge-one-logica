@@ -4,10 +4,10 @@ function autoExpand(element) {
 }
 
 function validarTexto() {
-    var texto = document.getElementById("texto").value.toLowerCase();
-    var errorMensaje = document.getElementById("error-mensaje");
+    let texto = document.getElementById("texto").value;
+    let errorMensaje = document.getElementById("error-mensaje");
 
-    if (!/^[a-z\n ]+$/.test(texto)) {
+    if (!/^[a-z\s]*$/.test(texto)) {
         document.getElementById("texto").classList.add("has-error");
         errorMensaje.innerHTML = "El texto ingresado debe contener solo letras minúsculas, sin acentos ni caracteres especiales.";
         return;
@@ -20,7 +20,7 @@ function validarTexto() {
 
 function encriptar() {
 
-    var texto = document.getElementById("texto").value;
+    let texto = document.getElementById("texto").value;
 
     // Validar el texto ingresado
     validarTexto();
@@ -36,21 +36,25 @@ function encriptar() {
     texto = texto.replace(/o/g, "ober");
     texto = texto.replace(/u/g, "ufat");
 
-    document.getElementById("resultado").innerHTML = texto.replace(/\n/g, "<br>");
-    document.getElementById("boton-copiar").classList.remove("d-none");
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = texto.replace(/\n/g, "<br>");
 
     // Ajustar la altura del elemento resultado en función del contenido
     resultado.style.height = "auto";
     resultado.style.height = resultado.scrollHeight + "px";
 
-    document.getElementById("texto").value = '';
-    document.getElementById("titulo-resultado").innerHTML = "Resultado de Encriptado:";
+    if (resultado.innerHTML === "") {
+        resultado.innerHTML = '<img class="img-default" src="img/muneco.svg" alt="Imagen predeterminada">';
+    }
 
-    return texto;
+    document.getElementById("boton-copiar").classList.remove("d-none");
+    document.getElementById("titulo-resultado").innerHTML = "Resultado Encriptado:";
+    document.getElementById("texto").value = '';
+
 }
 
 function desencriptar() {
-    var texto = document.getElementById("texto").value;
+    let texto = document.getElementById("texto").value;
 
     // Validar el texto ingresado
     validarTexto();
@@ -66,27 +70,31 @@ function desencriptar() {
     texto = texto.replace(/ober/g, "o");
     texto = texto.replace(/ufat/g, "u");
 
-    document.getElementById("resultado").innerHTML = texto.replace(/\n/g, "<br>");
-    document.getElementById("boton-copiar").classList.remove("d-none");
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = texto.replace(/\n/g, "<br>");
 
     // Ajustar la altura del elemento resultado en función del contenido
     resultado.style.height = "auto";
     resultado.style.height = resultado.scrollHeight + "px";
 
-    document.getElementById("texto").value = '';
-    document.getElementById("titulo-resultado").innerHTML = "Resultado de Desencriptado:";
+    if (resultado.innerHTML === "") {
+        resultado.innerHTML = '<img class="img-default" src="img/muneco.svg" alt="Imagen predeterminada">';
+    }
 
+    document.getElementById("boton-copiar").classList.remove("d-none");
+    document.getElementById("titulo-resultado").innerHTML = "Resultado Desencriptado:";
+    document.getElementById("texto").value = '';
 }
 
 function copiar() {
     if (!navigator.clipboard) {
         // use old commandExec() way
-        var resultado = document.getElementById("resultado");
+        let resultado = document.getElementById("resultado");
         resultado.select();
         document.execCommand("copy");
         alert("Texto copiado al portapapeles: " + resultado.value);
     } else {
-        var resultado = document.getElementById("resultado").innerText;
+        let resultado = document.getElementById("resultado").innerText;
 
         navigator.clipboard.writeText(resultado).then(function () {
             console.log('Async: Copying to clipboard was successful!');
@@ -98,10 +106,10 @@ function copiar() {
     }
 
     // Ajustar la altura del elemento resultado al valor predeterminado y borrar el contenido
-    var resultadoClean = document.getElementById("resultado")
+    let resultadoClean = document.getElementById("resultado")
     document.getElementById("texto").style.height = 'auto';
-    resultadoClean.style.height = '100px';
-    resultadoClean.innerHTML = "";
+    resultadoClean.style.height = 'calc(100vh - 250px)';
+    resultadoClean.innerHTML = '<img class="img-default" src="img/muneco.svg" alt="Imagen predeterminada">';
     document.getElementById("boton-copiar").classList.add("d-none");
     document.getElementById("titulo-resultado").innerHTML = "Resultado:";
 }

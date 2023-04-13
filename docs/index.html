@@ -11,30 +11,40 @@
 </head>
 
 <body>
-  <div class="container mt-5">
+	<div class="container mt-1">
     <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="texto"><strong>Texto a encriptar o desencriptar:</strong></label>
-          <textarea class="form-control" id="texto" rows="4" oninput="autoExpand(this); validarTexto()"></textarea>
-          <div class="text-center">
-            <div class="error-message" id="error-mensaje"></div>
+      <img class="text-center mt-3" src="img/logo.svg" alt="logo">
+    </div>
+		<div class="row">
+			<div class="container col-sm-12 text-center">
+				<div class=" container form-group text-center">
+					<label for="texto"><strong>Texto a encriptar o desencriptar:</strong></label>
+					<textarea class="form-control" id="texto" rows="4" oninput="autoExpand(this); validarTexto()" placeholder="Ingrese el texto aqui"></textarea>
+					<div class="error-message text-center" id="error-mensaje"></div>
+          <div class="container">
             <button class="btn btn-primary mt-3" onclick="encriptar()">Encriptar</button>
             <button class="btn btn-primary mt-3" onclick="desencriptar()">Desencriptar</button>
           </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="resultado"><strong id="titulo-resultado">Resultado:</strong></label>
-          <p class="resultado form-control" id="resultado"></p>
-          <div class="text-center">
-            <button class="btn btn-primary d-none" id="boton-copiar" onclick="copiar()">Copiar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+				</div>
+        <div class="container form-group">
+					<label for="resultado"><strong id="titulo-resultado">Resultado:</strong></label>
+					<div class="resultado" id="resultado">
+            <div class="container">
+              <img class="img-default" src="img/muneco.svg" alt="Imagen predeterminada">
+            </div>
+						<div class="container">
+              <h3>Ningún mensaje fue encontrado</h3>
+              <p>Ingresa el texto que desees encriptar o desencriptar</p>
+            </div>
+					</div>
+					<div class="text-center mt-3">
+						<button class="btn btn-primary d-none" id="boton-copiar" onclick="copiar()">Copiar</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 
   <!-- Agregamos el enlace para el archivo JS de Bootstrap y nuestro archivo JS personalizado -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
